@@ -1,0 +1,13 @@
+---
+# packages to be installed
+tor_mon_packages:
+  - nyx
+  - theonionbox
+
+# where to store theonionbox configuration files
+tor_mon_home: /etc/theonionbox
+
+# theonionbox configuration basics
+theonionbox_listen: 127.0.0.1
+theonionbox_port: 8080
+theonionbox_socket: /var/run/tor/control

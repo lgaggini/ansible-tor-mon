@@ -1,0 +1,15 @@
+---
+- name: tor-mon | install tor-mon packages
+  pip: name={{ tor_mon_packages }} state=latest 
+
+- name: tor-mon | create theonionbox user home
+  file: path={{ tor_mon_home }} state=directory
+
+- name: tor-mon | create configurations
+  template: src=theonionbox.cfg.j2 dest={{ tor_mon_home }}
+
+- name: tor-mon | create systemd unit
+  template: src=theonionbox.service.j2 dest=/etc/systemd/system/theonionbox.service owner=root group=root mode=0644
+
+- name: tor-mon | start and enable systemd unit
+  systemd: daemon_reload=yes name=theonionbox state=started enabled=yes

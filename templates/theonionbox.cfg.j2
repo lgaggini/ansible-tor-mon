@@ -1,0 +1,11 @@
+[config]
+protocol = 2
+
+[TheOnionBox]
+host = {{ theonionbox_listen }}
+port = {{ theonionbox_port }} 
+message_level = NOTICE
+
+[Tor]
+control = socket
+socket = {{ theonionbox_socket }}
